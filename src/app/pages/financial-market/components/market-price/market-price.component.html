@@ -1,0 +1,18 @@
+<div class="market-section">
+  <mat-grid-list cols="3"
+                 rowHeight="100px"
+                 class="info-list">
+    <mat-grid-tile>
+      Symbol: <br>
+      {{ symbol || '-' }}
+    </mat-grid-tile>
+    <mat-grid-tile>
+      Price: <br>
+      {{ marketData?.price || '-' }}
+    </mat-grid-tile>
+    <mat-grid-tile>
+      Time: <br>
+      {{ (marketData?.time | date: 'MMM d, h:mm:s a') || '-' }}
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

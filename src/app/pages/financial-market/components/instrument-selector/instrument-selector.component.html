@@ -1,0 +1,26 @@
+<div class="instruments-form">
+
+  <mat-form-field appearance="outline"
+                  class="instrument-field">
+    <mat-label>Instrument</mat-label>
+    <input type="text"
+           matInput
+           [formControl]="instrumentControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete"
+                      [displayWith]="displayInstrument">
+      <mat-option *ngFor="let instrument of filteredInstruments | async"
+                  [value]="instrument">
+        {{ instrument.symbol }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <button (click)="onSubscribe()"
+          [disabled]="instrumentControl.invalid"
+          mat-flat-button
+          color="primary">
+    Subscribe
+  </button>
+
+</div>
